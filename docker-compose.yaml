@@ -1,0 +1,75 @@
+version: "3.6"
+services:
+  sales:
+    container_name: sales-processing
+    environment: 
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
+    build:
+      context: SalesProcessingService
+      dockerfile: Dockerfile
+    image: sales-processing:latest
+    ports: 
+      - 7001:7001
+    networks: 
+      - indian-insurance
+    depends_on:
+      - customer
+  
+  customer:
+    container_name: customer-registration
+    environment: 
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
+    build:
+      context: CustomerRegistrationService
+      dockerfile: Dockerfile
+    image: customer-registration:latest
+    ports:
+      - 7000:7000
+    networks:
+      - indian-insurance
+    depends_on:
+      - eureka
+      - db
+
+  zuul:
+    container_name: zuul-proxy
+    environment: 
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
+    build:
+      context: Zuul
+      dockerfile: Dockerfile
+    image: zuul-proxy:latest
+    ports:
+      - 8762:8762
+    networks:
+      - indian-insurance
+    depends_on:
+      - eureka
+
+  eureka:
+    container_name: eureka-server
+    build:
+      context: EurekaServer
+      dockerfile: Dockerfile
+    image: eureka-server:latest
+    ports: 
+      - 8761:8761
+    networks:
+      - indian-insurance
+
+  db:
+    container_name: mysqldb
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    image: "mysql:5.7"
+    networks:
+      - indian-insurance
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./mysqldb:/var/lib/mysql"
+      - "./dbscripts:/docker-entrypoint-initdb.d"
+
+networks:
+  indian-insurance:
+    name: indian-insurance
