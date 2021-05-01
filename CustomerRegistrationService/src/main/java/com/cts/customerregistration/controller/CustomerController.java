@@ -60,7 +60,7 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/{pan}")
-	@Cacheable(value = "customer", key = "#pan")
+//	@Cacheable(value = "customer", key = "#pan")
 	public ResponseEntity<Customer> getCustomerByPan(@PathVariable("pan") String pan) throws CustomerNotFoundException{
 		log.debug("Controller In");
 		Customer resultCustomer = customerService.getCustomerByPan(pan);

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sales-processing-service-configmap
+data:
+  customer_feign_url: customer-service:8764
+  database_url: jdbc:mysql://insurance-project-mysql-server.mysql.database.azure.com:3306/customer_db?useSSL=true
+  redis_host: insurace-project.redis.cache.windows.net
+  redis_password: FraE+O5nRTFrLpHsyNsAs4nKha9OSkYiIwy3Q5G0FbE=

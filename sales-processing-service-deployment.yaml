@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  labels: 
+    app: sales-processing-service
+  name: sales-processing-service-deployment
+spec: 
+  replicas: 1
+  selector: 
+    matchLabels: 
+      app: sales-processing-service
+  template: 
+    metadata: 
+      labels: 
+        app: sales-processing-service
+    spec: 
+      containers: 
+      - name: sales-processing-service
+        image: insuranceprojectregistery.azurecr.io/sales-processing-service:v1
+        ports:
+        - containerPort: 8765
+        env:
+        #----------------------------
+        - name: CUSTOMER_REGISTRATION_SERVICE
+          valueFrom:
+            configMapKeyRef:
+              name: sales-processing-service-configmap
+              key: customer_feign_url
+        #----------------------------
+        - name: SPRING_DATASOURCE_URL
+          valueFrom: 
+            configMapKeyRef:
+              name: sales-processing-service-configmap
+              key: database_url
+        #----------------------------
+        - name: SPRING_DATASOURCE_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: sales-processing-service-secrets
+              key: mysql-root-username
+        #----------------------------
+        - name: SPRING_DATASOURCE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sales-processing-service-secrets
+              key: mysql-root-password
+        #----------------------------
+        - name: SPRING_REDIS_HOST
+          valueFrom: 
+            configMapKeyRef:
+              name: sales-processing-service-configmap
+              key: redis_host
+        #----------------------------
+        - name: SPRING_REDIS_PASSWORD
+          valueFrom: 
+            configMapKeyRef:
+              name: sales-processing-service-configmap
+              key: redis_password
+--- 
+apiVersion: v1
+kind: Service
+metadata: 
+  name: sales-service
+spec: 
+  selector: 
+    app: sales-processing-service
+  type: LoadBalancer
+  ports: 
+    - protocol: TCP
+      port: 8765
+      targetPort: 8765
+      nodePort: 30007
+  

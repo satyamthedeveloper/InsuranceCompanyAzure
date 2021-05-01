@@ -33,23 +33,21 @@ public class SalesController {
 	@CrossOrigin(origins = "http://localhost:3000")
 	@HystrixCommand(fallbackMethod = "getQuoteFallback")
 	@PostMapping("/getQuote")
-	@Cacheable(value = "sales", key = "#inputFormat.getPan()")
 	public ResponseEntity<Quotation> getQuote(@RequestBody InputFormat inputFormat) throws PolicyNotFoundException {
 
-		log.debug("Controller IN");
+		log.debug("getQuote Controller IN");
 		log.debug("pan:" + inputFormat.getPan() + ":" + inputFormat.getPolicyName());
 		Quotation quote = quotation.getQuotation(inputFormat.getPolicyName(), inputFormat.getPan());
-		log.debug("Controller OUT");
+		log.debug("getQuote Controller OUT");
 		return ResponseEntity.ok(quote);
 	}
 
 	@CrossOrigin(origins = "http://localhost:3000")
 	@PutMapping("/saveQuote")
-	@CachePut(value = "sales", key = "#quote")
 	public ResponseEntity<String> saveQuote(@RequestBody Quotation quote) {
-		log.debug("Controller IN");
+		log.debug("saveQuote Controller IN");
 		String result = quotation.saveQuotation(quote);
-		log.debug("Controller OUT");
+		log.debug("saveQuote Controller OUT");
 		return ResponseEntity.ok(result);
 	}
 
@@ -66,7 +64,7 @@ public class SalesController {
 
 	@CrossOrigin(origins = "http://localhost:3000")
 	@PutMapping("/submit")
-	@CachePut(value = "salesSubmit", key = "#quote")
+//	@CachePut(value = "salesSubmit", key = "#quote")
 	public ResponseEntity<String> submitApplication(@RequestBody Quotation quote) {
 		log.debug("Controller IN");
 		String result = quotation.submitApplication(quote);
@@ -77,28 +75,28 @@ public class SalesController {
 	@CrossOrigin(origins = "http://localhost:3000")
 	@HystrixCommand(fallbackMethod = "getCustomerFallback")
 	@PostMapping("/getCustomer")
-	@Cacheable(value = "customer", key = "#inputFormat.getPan()")
+//	@Cacheable(value = "customer", key = "#inputFormat.getPan()")
 	public ResponseEntity<CustomerDisplay> getCustomer(@RequestBody InputFormat inputFormat) {
 
-		log.debug("Controller IN");
+		log.debug("getCustomer Controller IN");
 		log.debug("pan:" + inputFormat.getPan() + ":" + inputFormat.getPolicyName());
 		CustomerDisplay details = quotation.getCustomer(inputFormat.getPan());
-		log.debug("Controller OUT");
+		log.debug("getCustomer Controller OUT");
 		return ResponseEntity.ok(details);
 	}
 
 	public ResponseEntity<Quotation> getQuoteFallback(@RequestBody InputFormat inputFormat)
 			throws PolicyNotFoundException {
-		log.debug("Fallback IN");
+		log.debug("getQuoteFallback Fallback IN");
 		Quotation quote = new Quotation(0, "AAAAA0000A", "Default Insurance", 0.0, 0, false);
-		log.debug("Fallback OUT");
+		log.debug("getQuoteFallback Fallback OUT");
 		return ResponseEntity.ok(quote);
 	}
 
 	public ResponseEntity<CustomerDisplay> getCustomerFallback(@RequestBody InputFormat inputFormat) {
-		log.debug("Fallback IN");
+		log.debug("getCustomerFallback Fallback IN");
 		CustomerDisplay details = new CustomerDisplay("Service Down", "Gender");
-		log.debug("Fallback OUT");
+		log.debug("getCustomerFallback Fallback OUT");
 		return ResponseEntity.ok(details);
 	}
 }

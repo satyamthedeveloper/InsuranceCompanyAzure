@@ -2,6 +2,8 @@ package com.cts.salesprocessing.services;
 
 import java.util.function.BiFunction;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.cts.salesprocessing.dao.PolicyDetailsDao;
@@ -47,24 +49,27 @@ public class QuotationServiceImpl implements QuotationService {
 	};
 
 	@Override
+//	@Cacheable(value = "quotations", key = "#pAN")
 	public Quotation getQuotation(String policyName, String pAN) throws PolicyNotFoundException {
 		// TODO Auto-generated method stub
-		log.debug("Service IN");
+		log.debug("getQuotation Service IN");
 		PolicyDetails policyDetails = policyDao.findById(policyName)
 				.orElseThrow(() -> new PolicyNotFoundException(policyName + " does not exist"));
 
 		Customer customer = customerProxy.getCustomerByPan(pAN).getBody();
 
-		log.debug("Service OUT");
+		log.debug("getQuotation Service OUT");
+		log.debug(quotationCalculate.apply(policyDetails, customer).toString());
 		return quotationCalculate.apply(policyDetails, customer);
 	}
 
 	@Override
+//	@CachePut(value = "quotations", key = "#quotation")
 	public String saveQuotation(Quotation quotation) {
 		// TODO Auto-generated method stub
-		log.debug("Service IN");
+		log.debug("saveQuotation Service IN");
 		quotationDao.save(quotation);
-		log.debug("Service OUT");
+		log.debug("saveQuotation Service OUT");
 		return "Quotation Saved.";
 	}
 
@@ -72,21 +77,21 @@ public class QuotationServiceImpl implements QuotationService {
 	public Quotation retriveQuotation(int id) throws QuotationNotFoundException {
 		// TODO Auto-generated method stub
 
-		log.debug("Service IN");
+		log.debug("retriveQuotation Service IN");
 		Quotation quotation = quotationDao.findById(id)
 				.orElseThrow(() -> new QuotationNotFoundException(id + ": is not found."));
 
-		log.debug("Service OUT");
+		log.debug("retriveQuotation Service OUT");
 		return quotation;
 	}
 
 	@Override
 	public String submitApplication(Quotation quotation) {
 		// TODO Auto-generated method stub
-		log.debug("Service IN");
+		log.debug("submitApplication Service IN");
 		quotation.setSubmitted(true);
 		quotationDao.save(quotation);
-		log.debug("Service OUT");
+		log.debug("submitApplication Service OUT");
 		return "Form submitted";
 	}
 
