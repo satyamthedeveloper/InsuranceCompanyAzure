@@ -3,7 +3,9 @@ kind: ConfigMap
 metadata:
   name: sales-processing-service-configmap
 data:
-  customer_feign_url: customer-service:8764
-  database_url: jdbc:mysql://insurance-project-mysql-server.mysql.database.azure.com:3306/customer_db?useSSL=true
-  redis_host: insurace-project.redis.cache.windows.net
-  redis_password: FraE+O5nRTFrLpHsyNsAs4nKha9OSkYiIwy3Q5G0FbE=
+  customer_feign_url: customer-service:7000
+  database_url: jdbc:mysql://indian-insurance-mysql.mysql.database.azure.com:3306/insurance_usecase?useSSL=true&requireSSL=false
+  file_upload_path: DefaultEndpointsProtocol=https;AccountName=indianinsurancestorage;AccountKey=GatA3u7/rkiaELcMS7vsx20WyU4gO8L6vaM/27w0I1ZFKCpENffo4A8x9a8sJyIXEwSlIuEUtDKj+PtyNSKRNA==;EndpointSuffix=core.windows.net
+  container_name: uploaded-files
+  redis_host: indianinsurance.redis.cache.windows.net
+  redis_password: SDb1UmFgowR7IRJ1Fya8HEs8xYces+RI60bUNjQgeTY=

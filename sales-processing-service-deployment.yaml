@@ -16,9 +16,9 @@ spec:
     spec: 
       containers: 
       - name: sales-processing-service
-        image: insuranceprojectregistery.azurecr.io/sales-processing-service:v1
+        image: indianinsuranceregistry.azurecr.io/salesservice:latest
         ports:
-        - containerPort: 8765
+        - containerPort: 7001
         env:
         #----------------------------
         - name: CUSTOMER_REGISTRATION_SERVICE
@@ -45,6 +45,18 @@ spec:
               name: sales-processing-service-secrets
               key: mysql-root-password
         #----------------------------
+        - name: FILE_UPLOAD_PATH
+          valueFrom: 
+            configMapKeyRef:
+              name: sales-processing-service-configmap
+              key: file_upload_path
+        #----------------------------
+        - name: CONTAINER_NAME
+          valueFrom: 
+            configMapKeyRef:
+              name: sales-processing-service-configmap
+              key: container_name
+        #----------------------------
         - name: SPRING_REDIS_HOST
           valueFrom: 
             configMapKeyRef:
@@ -67,7 +79,7 @@ spec:
   type: LoadBalancer
   ports: 
     - protocol: TCP
-      port: 8765
-      targetPort: 8765
+      port: 7001
+      targetPort: 7001
       nodePort: 30007
   

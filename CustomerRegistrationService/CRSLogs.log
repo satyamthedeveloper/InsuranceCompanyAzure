@@ -1,1 +1,499 @@
-2021-05-01 14:37:25.991  WARN 15312 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=20h37m46s43ms938µs300ns).
+2021-05-02 10:36:51.512  WARN 15312 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10h43m42s734ms464µs900ns).
+2021-05-02 11:26:38.914  WARN 15312 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=29m17s94ms385µs800ns).
+2021-05-02 13:31:16.336  WARN 15312 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=30m900ms872µs500ns).
+2021-05-02 13:36:36.042  WARN 15312 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m49s722ms725µs200ns).
+2021-05-02 13:36:37.256 ERROR 15312 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Error thrown while acquiring connection from data source
+
+com.mysql.cj.jdbc.exceptions.CommunicationsException: The last packet successfully received from the server was 264,661 milliseconds ago. The last packet sent successfully to the server was 264,940 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.mysql.cj.jdbc.ConnectionImpl.isReadOnly(ConnectionImpl.java:1419) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.mysql.cj.jdbc.ConnectionImpl.isReadOnly(ConnectionImpl.java:1404) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.zaxxer.hikari.pool.PoolBase.setupConnection(PoolBase.java:402) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:363) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:477) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.access$100(HikariPool.java:71) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:725) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:711) ~[HikariCP-3.4.5.jar:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:832) ~[na:na]
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: The last packet successfully received from the server was 264,661 milliseconds ago. The last packet sent successfully to the server was 264,940 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.
+	at jdk.internal.reflect.GeneratedConstructorAccessor69.newInstance(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[na:na]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:546) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.mysql.cj.protocol.a.NativeProtocol.checkErrorMessage(NativeProtocol.java:710) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendCommand(NativeProtocol.java:649) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendCommand(NativeProtocol.java:136) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.mysql.cj.NativeSession.sendCommand(NativeSession.java:311) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.mysql.cj.NativeSession.queryServerVariable(NativeSession.java:1008) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.mysql.cj.jdbc.ConnectionImpl.isReadOnly(ConnectionImpl.java:1411) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	... 12 common frames omitted
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:283) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803) ~[na:na]
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:981) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:469) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:463) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1434) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1038) ~[na:na]
+	at java.base/java.io.FilterInputStream.read(FilterInputStream.java:132) ~[na:na]
+	at com.mysql.cj.protocol.FullReadInputStream.readFully(FullReadInputStream.java:64) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:63) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:45) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:52) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:41) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:54) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:44) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:540) ~[mysql-connector-java-8.0.23.jar:8.0.23]
+	... 18 common frames omitted
+
+2021-05-02 13:46:41.627  INFO 15312 --- [RMI TCP Connection(423)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-05-02 13:46:44.543  INFO 15312 --- [RMI TCP Connection(423)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-02 13:46:44.653  INFO 15312 --- [RMI TCP Connection(423)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-05-02 13:46:45.414  INFO 15312 --- [RMI TCP Connection(423)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-05-02 13:46:45.595  INFO 15312 --- [RMI TCP Connection(423)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-05-02 18:36:55.454  INFO 12340 --- [restartedMain] c.CustomerRegistrationServiceApplication : Starting CustomerRegistrationServiceApplication on DESKTOP-EV165GM with PID 12340 (E:\MetLife\InsuranceCompany\CustomerRegistrationService\target\classes started by satya in E:\MetLife\InsuranceCompany\CustomerRegistrationService)
+2021-05-02 18:36:55.490 DEBUG 12340 --- [restartedMain] c.CustomerRegistrationServiceApplication : Running with Spring Boot v2.3.9.RELEASE, Spring v5.2.13.RELEASE
+2021-05-02 18:36:55.491  INFO 12340 --- [restartedMain] c.CustomerRegistrationServiceApplication : No active profile set, falling back to default profiles: default
+2021-05-02 18:36:55.580  INFO 12340 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-02 18:36:55.580  INFO 12340 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-02 18:36:58.208  INFO 12340 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-02 18:36:58.212  INFO 12340 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-02 18:36:58.753  INFO 12340 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 526ms. Found 1 JPA repository interfaces.
+2021-05-02 18:36:58.824  INFO 12340 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-02 18:36:58.829  INFO 12340 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-02 18:36:58.876  INFO 12340 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.cts.customerregistration.dao.CustomerDao. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-05-02 18:36:58.877  INFO 12340 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18ms. Found 0 Redis repository interfaces.
+2021-05-02 18:37:01.385  INFO 12340 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7000 (http)
+2021-05-02 18:37:01.405  INFO 12340 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-02 18:37:01.406  INFO 12340 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-02 18:37:01.735  INFO 12340 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-05-02 18:37:01.736  INFO 12340 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6155 ms
+2021-05-02 18:37:02.892  INFO 12340 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-02 18:37:03.177  INFO 12340 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-05-02 18:37:05.160  INFO 12340 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-05-02 18:37:05.603  INFO 12340 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-05-02 18:37:12.854  INFO 12340 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-05-02 18:37:14.014  INFO 12340 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2021-05-02 18:37:20.028  INFO 12340 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-02 18:37:20.047  INFO 12340 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-02 18:37:20.175  INFO 12340 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-05-02 18:37:21.653  WARN 12340 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-05-02 18:37:22.046  INFO 12340 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-05-02 18:37:22.390  INFO 12340 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-02 18:37:23.693  INFO 12340 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7000 (http) with context path ''
+2021-05-02 18:37:23.696  INFO 12340 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-05-02 18:37:23.741  INFO 12340 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-05-02 18:37:24.011  INFO 12340 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-05-02 18:37:24.520  INFO 12340 --- [restartedMain] c.CustomerRegistrationServiceApplication : Started CustomerRegistrationServiceApplication in 29.81 seconds (JVM running for 36.254)
+2021-05-02 18:41:29.800  INFO 12340 --- [http-nio-7000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-02 18:41:29.801  INFO 12340 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-05-02 18:41:29.818  INFO 12340 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 16 ms
+2021-05-02 18:41:30.040 DEBUG 12340 --- [http-nio-7000-exec-1] c.c.c.controller.CustomerController      : Controller In
+2021-05-02 18:41:30.041 DEBUG 12340 --- [http-nio-7000-exec-1] c.c.c.controller.CustomerController      : LoginInput(pan=ASDFG1234ZXC, date=1970-11-06, password=password)
+2021-05-02 18:41:30.042 DEBUG 12340 --- [http-nio-7000-exec-1] c.c.c.services.LoginServiceImpl          : Details received : ASDFG1234ZXC: 1970-11-06
+2021-05-02 18:41:30.124  WARN 12340 --- [http-nio-7000-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@2144c58 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:41:30.127  WARN 12340 --- [http-nio-7000-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7111c0c9 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:41:30.130  WARN 12340 --- [http-nio-7000-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@51c7343f (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:41:30.132  WARN 12340 --- [http-nio-7000-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@734b8235 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:41:30.134  WARN 12340 --- [http-nio-7000-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@788f8d42 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:41:30.138  WARN 12340 --- [http-nio-7000-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7671d12 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:41:30.141  WARN 12340 --- [http-nio-7000-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6fe9a70d (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:41:30.143  WARN 12340 --- [http-nio-7000-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@409cdaef (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:41:30.148  WARN 12340 --- [http-nio-7000-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@447daa23 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:41:30.151  WARN 12340 --- [http-nio-7000-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7b4da033 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:41:36.208 DEBUG 12340 --- [http-nio-7000-exec-1] c.c.c.services.LoginServiceImpl          : databse checked
+2021-05-02 18:41:36.208 DEBUG 12340 --- [http-nio-7000-exec-1] c.c.c.services.LoginServiceImpl          : entry found
+2021-05-02 18:41:36.209 DEBUG 12340 --- [http-nio-7000-exec-1] c.c.c.services.LoginServiceImpl          : compare date: true
+2021-05-02 18:41:36.209 DEBUG 12340 --- [http-nio-7000-exec-1] c.c.c.controller.CustomerController      : output: Login Successful.
+2021-05-02 18:41:36.210 DEBUG 12340 --- [http-nio-7000-exec-1] c.c.c.controller.CustomerController      : Controller Out
+2021-05-02 18:42:58.578 DEBUG 12340 --- [http-nio-7000-exec-3] c.c.c.controller.CustomerController      : Controller In
+2021-05-02 18:42:58.579 DEBUG 12340 --- [http-nio-7000-exec-3] c.c.c.controller.CustomerController      : LoginInput(pan=ASDFG1234ZXC, date=1970-11-06, password=password)
+2021-05-02 18:42:58.579 DEBUG 12340 --- [http-nio-7000-exec-3] c.c.c.services.LoginServiceImpl          : Details received : ASDFG1234ZXC: 1970-11-06
+2021-05-02 18:42:58.582  WARN 12340 --- [http-nio-7000-exec-3] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@b966683 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:42:58.585  WARN 12340 --- [http-nio-7000-exec-3] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@16e0df3 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:42:58.589  WARN 12340 --- [http-nio-7000-exec-3] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@446c83ba (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:42:58.591  WARN 12340 --- [http-nio-7000-exec-3] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7cf657ca (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:42:58.593  WARN 12340 --- [http-nio-7000-exec-3] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7562c454 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:42:58.596  WARN 12340 --- [http-nio-7000-exec-3] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6ac527b0 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:42:58.598  WARN 12340 --- [http-nio-7000-exec-3] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@9660ed8 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:43:00.583 DEBUG 12340 --- [http-nio-7000-exec-3] c.c.c.services.LoginServiceImpl          : databse checked
+2021-05-02 18:43:00.583 DEBUG 12340 --- [http-nio-7000-exec-3] c.c.c.services.LoginServiceImpl          : entry found
+2021-05-02 18:43:00.584 DEBUG 12340 --- [http-nio-7000-exec-3] c.c.c.services.LoginServiceImpl          : compare date: true
+2021-05-02 18:43:00.584 DEBUG 12340 --- [http-nio-7000-exec-3] c.c.c.controller.CustomerController      : output: Login Successful.
+2021-05-02 18:43:00.584 DEBUG 12340 --- [http-nio-7000-exec-3] c.c.c.controller.CustomerController      : Controller Out
+2021-05-02 18:44:39.911 DEBUG 12340 --- [http-nio-7000-exec-6] c.c.c.controller.CustomerController      : Controller In
+2021-05-02 18:44:39.914 DEBUG 12340 --- [http-nio-7000-exec-6] c.c.c.controller.CustomerController      : Customer(pan=PLMOK9638QWE, name=Priyanshi Sinha, dateOfBirth=1985-05-05, gender=FEMALE, address=Hyderabad, password=password)
+2021-05-02 18:44:39.916 DEBUG 12340 --- [http-nio-7000-exec-6] c.c.c.services.RegistrationServiceImpl   : Received: Customer(pan=PLMOK9638QWE, name=Priyanshi Sinha, dateOfBirth=1985-05-05, gender=FEMALE, address=Hyderabad, password=password)
+2021-05-02 18:44:39.920  WARN 12340 --- [http-nio-7000-exec-6] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@3d9f0b1e (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:44:39.923  WARN 12340 --- [http-nio-7000-exec-6] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@755fc09f (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:44:39.925  WARN 12340 --- [http-nio-7000-exec-6] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@130fef2a (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:44:39.928  WARN 12340 --- [http-nio-7000-exec-6] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@568dd1ae (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:44:39.932  WARN 12340 --- [http-nio-7000-exec-6] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@51a55cd (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:44:39.934  WARN 12340 --- [http-nio-7000-exec-6] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@e4a36c9 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:44:39.936  WARN 12340 --- [http-nio-7000-exec-6] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6250fe95 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:44:39.938  WARN 12340 --- [http-nio-7000-exec-6] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5a6853d0 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:44:39.940  WARN 12340 --- [http-nio-7000-exec-6] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@d0bd16d (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:44:39.942  WARN 12340 --- [http-nio-7000-exec-6] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@52a8427b (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:44:45.684 DEBUG 12340 --- [http-nio-7000-exec-6] c.c.c.services.RegistrationServiceImpl   : Customer(pan=PLMOK9638QWE, name=Priyanshi Sinha, dateOfBirth=1985-05-05, gender=FEMALE, address=Hyderabad, password=password): registeration successful
+2021-05-02 18:44:45.685 DEBUG 12340 --- [http-nio-7000-exec-6] c.c.c.controller.CustomerController      : Controller Out
+2021-05-02 18:46:28.879 DEBUG 12340 --- [http-nio-7000-exec-7] c.c.c.controller.CustomerController      : Controller In
+2021-05-02 18:46:28.879 DEBUG 12340 --- [http-nio-7000-exec-7] c.c.c.services.CustomerServiceImpl       : Service IN
+2021-05-02 18:46:28.883  WARN 12340 --- [http-nio-7000-exec-7] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1924b7d6 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:46:28.885  WARN 12340 --- [http-nio-7000-exec-7] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4fe0dd6c (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:46:28.889  WARN 12340 --- [http-nio-7000-exec-7] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@60b1b893 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:46:28.891  WARN 12340 --- [http-nio-7000-exec-7] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5c972954 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:46:28.893  WARN 12340 --- [http-nio-7000-exec-7] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@48106b02 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:46:28.896  WARN 12340 --- [http-nio-7000-exec-7] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1d2d4d1 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:46:28.896  WARN 12340 --- [http-nio-7000-exec-7] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6c4a9158 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:46:28.898  WARN 12340 --- [http-nio-7000-exec-7] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@9f2c80c (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:46:28.899  WARN 12340 --- [http-nio-7000-exec-7] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4271fa4b (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:46:28.906  WARN 12340 --- [http-nio-7000-exec-7] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5512ca88 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 18:46:34.723 DEBUG 12340 --- [http-nio-7000-exec-7] c.c.c.controller.CustomerController      : Controller Out
+2021-05-02 18:49:57.281  INFO 12340 --- [RMI TCP Connection(23)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-05-02 18:49:57.330  INFO 12340 --- [RMI TCP Connection(23)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-02 18:49:57.335  INFO 12340 --- [RMI TCP Connection(23)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-05-02 18:49:57.342  INFO 12340 --- [RMI TCP Connection(23)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-05-02 18:49:57.353  INFO 12340 --- [RMI TCP Connection(23)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-05-02 19:06:37.763  INFO 5440 --- [restartedMain] c.CustomerRegistrationServiceApplication : Starting CustomerRegistrationServiceApplication on DESKTOP-EV165GM with PID 5440 (E:\MetLife\InsuranceCompany\CustomerRegistrationService\target\classes started by satya in E:\MetLife\InsuranceCompany\CustomerRegistrationService)
+2021-05-02 19:06:37.767 DEBUG 5440 --- [restartedMain] c.CustomerRegistrationServiceApplication : Running with Spring Boot v2.3.9.RELEASE, Spring v5.2.13.RELEASE
+2021-05-02 19:06:37.769  INFO 5440 --- [restartedMain] c.CustomerRegistrationServiceApplication : No active profile set, falling back to default profiles: default
+2021-05-02 19:06:37.830  INFO 5440 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-02 19:06:37.831  INFO 5440 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-02 19:06:39.487  INFO 5440 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-02 19:06:39.488  INFO 5440 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-02 19:06:39.662  INFO 5440 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 164ms. Found 1 JPA repository interfaces.
+2021-05-02 19:06:39.682  INFO 5440 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-02 19:06:39.683  INFO 5440 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-02 19:06:39.701  INFO 5440 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.cts.customerregistration.dao.CustomerDao. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-05-02 19:06:39.702  INFO 5440 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4ms. Found 0 Redis repository interfaces.
+2021-05-02 19:06:41.440  INFO 5440 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7000 (http)
+2021-05-02 19:06:41.467  INFO 5440 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-02 19:06:41.467  INFO 5440 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-02 19:06:41.678  INFO 5440 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-05-02 19:06:41.679  INFO 5440 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3848 ms
+2021-05-02 19:06:42.050 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : Driver class com.mysql.cj.jdbc.Driver found in Thread context class loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@4b6b8209
+2021-05-02 19:06:42.269  INFO 5440 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-02 19:06:42.628  INFO 5440 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-05-02 19:06:43.212  INFO 5440 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-05-02 19:06:43.396 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - configuration:
+2021-05-02 19:06:43.397 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : allowPoolSuspension.............false
+2021-05-02 19:06:43.398 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : autoCommit......................true
+2021-05-02 19:06:43.399 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : catalog.........................none
+2021-05-02 19:06:43.399 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : connectionInitSql...............none
+2021-05-02 19:06:43.399 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : connectionTestQuery.............none
+2021-05-02 19:06:43.399 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : connectionTimeout...............30000
+2021-05-02 19:06:43.399 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : dataSource......................none
+2021-05-02 19:06:43.399 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : dataSourceClassName.............none
+2021-05-02 19:06:43.399 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : dataSourceJNDI..................none
+2021-05-02 19:06:43.399 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : dataSourceProperties............{password=<masked>}
+2021-05-02 19:06:43.399 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : driverClassName................."com.mysql.cj.jdbc.Driver"
+2021-05-02 19:06:43.399 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : exceptionOverrideClassName......none
+2021-05-02 19:06:43.399 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : healthCheckProperties...........{}
+2021-05-02 19:06:43.400 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : healthCheckRegistry.............none
+2021-05-02 19:06:43.400 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : idleTimeout.....................600000
+2021-05-02 19:06:43.401 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : initializationFailTimeout.......1
+2021-05-02 19:06:43.402 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : isolateInternalQueries..........false
+2021-05-02 19:06:43.402 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : jdbcUrl.........................jdbc:mysql://indian-insurance-mysql.mysql.database.azure.com:3306/insurance_usecase?useSSL=true&requireSSL=false
+2021-05-02 19:06:43.402 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : leakDetectionThreshold..........2000
+2021-05-02 19:06:43.402 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : maxLifetime.....................1800000
+2021-05-02 19:06:43.402 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : maximumPoolSize.................20
+2021-05-02 19:06:43.402 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : metricRegistry..................none
+2021-05-02 19:06:43.403 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : metricsTrackerFactory...........none
+2021-05-02 19:06:43.403 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : minimumIdle.....................5
+2021-05-02 19:06:43.403 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : password........................<masked>
+2021-05-02 19:06:43.404 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : poolName........................"HikariPool-1"
+2021-05-02 19:06:43.404 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : readOnly........................false
+2021-05-02 19:06:43.404 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : registerMbeans..................false
+2021-05-02 19:06:43.404 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : scheduledExecutor...............none
+2021-05-02 19:06:43.404 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : schema..........................none
+2021-05-02 19:06:43.404 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : threadFactory...................internal
+2021-05-02 19:06:43.404 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : transactionIsolation............default
+2021-05-02 19:06:43.404 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : username........................"satyam@indian-insurance-mysql"
+2021-05-02 19:06:43.405 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : validationTimeout...............5000
+2021-05-02 19:06:43.405  INFO 5440 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-05-02 19:06:49.416 DEBUG 5440 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@72b833ab
+2021-05-02 19:06:49.418  INFO 5440 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-05-02 19:06:49.519 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Before cleanup stats (total=1, active=1, idle=0, waiting=0)
+2021-05-02 19:06:49.520 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - After cleanup  stats (total=1, active=1, idle=0, waiting=0)
+2021-05-02 19:06:49.578  INFO 5440 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2021-05-02 19:06:53.169  WARN 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.ProxyLeakTask     : Connection leak detection triggered for com.mysql.cj.jdbc.ConnectionImpl@72b833ab on thread restartedMain, stack trace follows
+
+java.lang.Exception: Apparent connection leak detected
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:128) ~[HikariCP-3.4.5.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.4.28.Final.jar:5.4.28.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180) ~[hibernate-core-5.4.28.Final.jar:5.4.28.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:43) ~[hibernate-core-5.4.28.Final.jar:5.4.28.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:60) ~[hibernate-core-5.4.28.Final.jar:5.4.28.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:67) ~[hibernate-core-5.4.28.Final.jar:5.4.28.Final]
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.getTables(InformationExtractorJdbcDatabaseMetaDataImpl.java:333) ~[hibernate-core-5.4.28.Final.jar:5.4.28.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:120) ~[hibernate-core-5.4.28.Final.jar:5.4.28.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:65) ~[hibernate-core-5.4.28.Final.jar:5.4.28.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:207) ~[hibernate-core-5.4.28.Final.jar:5.4.28.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:114) ~[hibernate-core-5.4.28.Final.jar:5.4.28.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:184) ~[hibernate-core-5.4.28.Final.jar:5.4.28.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73) ~[hibernate-core-5.4.28.Final.jar:5.4.28.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:318) ~[hibernate-core-5.4.28.Final.jar:5.4.28.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:468) ~[hibernate-core-5.4.28.Final.jar:5.4.28.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1259) ~[hibernate-core-5.4.28.Final.jar:5.4.28.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391) ~[spring-orm-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378) ~[spring-orm-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1858) ~[spring-beans-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1795) ~[spring-beans-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594) ~[spring-beans-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1109) ~[spring-context-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:869) ~[spring-context-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551) ~[spring-context-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-2.3.9.RELEASE.jar:2.3.9.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758) ~[spring-boot-2.3.9.RELEASE.jar:2.3.9.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750) ~[spring-boot-2.3.9.RELEASE.jar:2.3.9.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:405) ~[spring-boot-2.3.9.RELEASE.jar:2.3.9.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) ~[spring-boot-2.3.9.RELEASE.jar:2.3.9.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237) ~[spring-boot-2.3.9.RELEASE.jar:2.3.9.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) ~[spring-boot-2.3.9.RELEASE.jar:2.3.9.RELEASE]
+	at com.cts.customerregistration.CustomerRegistrationServiceApplication.main(CustomerRegistrationServiceApplication.java:22) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.3.9.RELEASE.jar:2.3.9.RELEASE]
+
+2021-05-02 19:06:53.375  INFO 5440 --- [restartedMain] com.zaxxer.hikari.pool.ProxyLeakTask     : Previously reported leaked connection com.mysql.cj.jdbc.ConnectionImpl@72b833ab on thread restartedMain was returned to the pool (unleaked)
+2021-05-02 19:06:53.377  INFO 5440 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-02 19:06:53.407  INFO 5440 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-02 19:06:53.489  INFO 5440 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-05-02 19:06:54.381  WARN 5440 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-05-02 19:06:54.984  INFO 5440 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-05-02 19:06:55.260  INFO 5440 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-02 19:06:55.826  INFO 5440 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7000 (http) with context path ''
+2021-05-02 19:06:55.827  INFO 5440 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-05-02 19:06:55.851  INFO 5440 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-05-02 19:06:55.879 DEBUG 5440 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2c0674d3
+2021-05-02 19:06:55.902  INFO 5440 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-05-02 19:06:56.219  INFO 5440 --- [restartedMain] c.CustomerRegistrationServiceApplication : Started CustomerRegistrationServiceApplication in 18.874 seconds (JVM running for 20.767)
+2021-05-02 19:06:59.989 DEBUG 5440 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@d1481a7
+2021-05-02 19:07:03.709 DEBUG 5440 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@68ec8b8c
+2021-05-02 19:07:08.649 DEBUG 5440 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@95a780a
+2021-05-02 19:07:19.531 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:07:19.532 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:07:19.533 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2021-05-02 19:07:49.547 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:07:49.548 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:07:49.548 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2021-05-02 19:08:19.554 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:08:19.556 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:08:19.556 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2021-05-02 19:08:49.558 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:08:49.560 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:08:49.560 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2021-05-02 19:09:19.562 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:09:19.564 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:09:19.565 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2021-05-02 19:09:40.449  INFO 5440 --- [http-nio-7000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-02 19:09:40.449  INFO 5440 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-05-02 19:09:40.466  INFO 5440 --- [http-nio-7000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 17 ms
+2021-05-02 19:09:49.566 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:09:49.567 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:09:49.567 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2021-05-02 19:09:59.522 DEBUG 5440 --- [http-nio-7000-exec-9] c.c.c.controller.CustomerController      : Controller In
+2021-05-02 19:09:59.523 DEBUG 5440 --- [http-nio-7000-exec-9] c.c.c.services.CustomerServiceImpl       : Service IN
+2021-05-02 19:09:59.692  WARN 5440 --- [http-nio-7000-exec-9] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@72b833ab (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 19:09:59.694 DEBUG 5440 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@72b833ab: (connection is dead)
+2021-05-02 19:09:59.696  WARN 5440 --- [http-nio-7000-exec-9] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@2c0674d3 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 19:09:59.696 DEBUG 5440 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@2c0674d3: (connection is dead)
+2021-05-02 19:09:59.703  WARN 5440 --- [http-nio-7000-exec-9] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@d1481a7 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 19:09:59.704 DEBUG 5440 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@d1481a7: (connection is dead)
+2021-05-02 19:09:59.704 DEBUG 5440 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2021-05-02 19:09:59.706  WARN 5440 --- [http-nio-7000-exec-9] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@68ec8b8c (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 19:09:59.706 DEBUG 5440 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@68ec8b8c: (connection is dead)
+2021-05-02 19:09:59.719  WARN 5440 --- [http-nio-7000-exec-9] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@95a780a (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-05-02 19:09:59.719 DEBUG 5440 --- [http-nio-7000-exec-9] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Add connection elided, waiting 1, queue 5
+2021-05-02 19:09:59.719 DEBUG 5440 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@95a780a: (connection is dead)
+2021-05-02 19:09:59.720 DEBUG 5440 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2021-05-02 19:10:03.936 DEBUG 5440 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4575d181
+2021-05-02 19:10:05.946  WARN 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.ProxyLeakTask     : Connection leak detection triggered for com.mysql.cj.jdbc.ConnectionImpl@4575d181 on thread http-nio-7000-exec-9, stack trace follows
+
+java.lang.Exception: Apparent connection leak detected
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:128) ~[HikariCP-3.4.5.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.4.28.Final.jar:5.4.28.Final]
+	at org.hibernate.internal.NonContextualJdbcConnectionAccess.obtainConnection(NonContextualJdbcConnectionAccess.java:38) ~[hibernate-core-5.4.28.Final.jar:5.4.28.Final]
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.acquireConnectionIfNeeded(LogicalConnectionManagedImpl.java:108) ~[hibernate-core-5.4.28.Final.jar:5.4.28.Final]
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:138) ~[hibernate-core-5.4.28.Final.jar:5.4.28.Final]
+	at org.hibernate.internal.SessionImpl.connection(SessionImpl.java:480) ~[hibernate-core-5.4.28.Final.jar:5.4.28.Final]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564) ~[na:na]
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:282) ~[spring-core-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:266) ~[spring-core-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle.doGetConnection(HibernateJpaDialect.java:430) ~[spring-orm-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.beginTransaction(HibernateJpaDialect.java:174) ~[spring-orm-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:402) ~[spring-orm-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.startTransaction(AbstractPlatformTransactionManager.java:400) ~[spring-tx-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:373) ~[spring-tx-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.createTransactionIfNecessary(TransactionAspectSupport.java:574) ~[spring-tx-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:361) ~[spring-tx-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118) ~[spring-tx-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139) ~[spring-tx-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:178) ~[spring-data-jpa-2.3.7.RELEASE.jar:2.3.7.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95) ~[spring-aop-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212) ~[spring-aop-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at com.sun.proxy.$Proxy91.findById(Unknown Source) ~[na:na]
+	at com.cts.customerregistration.services.CustomerServiceImpl.getCustomerByPan(CustomerServiceImpl.java:24) ~[classes/:na]
+	at com.cts.customerregistration.controller.CustomerController.getCustomerByPan(CustomerController.java:66) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105) ~[spring-webmvc-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878) ~[spring-webmvc-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792) ~[spring-webmvc-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[tomcat-embed-core-9.0.43.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.43.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.13.RELEASE.jar:5.2.13.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.43.jar:9.0.43]
+	at java.base/java.lang.Thread.run(Thread.java:832) ~[na:na]
+
+2021-05-02 19:10:06.185 DEBUG 5440 --- [http-nio-7000-exec-9] c.c.c.controller.CustomerController      : Controller Out
+2021-05-02 19:10:06.214  INFO 5440 --- [http-nio-7000-exec-9] com.zaxxer.hikari.pool.ProxyLeakTask     : Previously reported leaked connection com.mysql.cj.jdbc.ConnectionImpl@4575d181 on thread http-nio-7000-exec-9 was returned to the pool (unleaked)
+2021-05-02 19:10:07.697 DEBUG 5440 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3506f820
+2021-05-02 19:10:07.698 DEBUG 5440 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - After adding stats (total=2, active=0, idle=2, waiting=0)
+2021-05-02 19:10:11.497 DEBUG 5440 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4b25e2a0
+2021-05-02 19:10:15.266 DEBUG 5440 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7855011e
+2021-05-02 19:10:15.267 DEBUG 5440 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - After adding stats (total=4, active=0, idle=4, waiting=0)
+2021-05-02 19:10:19.016 DEBUG 5440 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@515e7a01
+2021-05-02 19:10:19.569 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:10:19.570 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:10:19.570 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2021-05-02 19:10:49.581 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:10:49.583 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:10:49.583 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2021-05-02 19:11:19.588 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:11:19.589 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:11:19.589 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2021-05-02 19:11:49.595 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:11:49.595 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:11:49.596 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2021-05-02 19:12:19.609 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:12:19.610 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:12:19.611 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2021-05-02 19:12:49.614 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:12:49.615 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:12:49.615 DEBUG 5440 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+2021-05-02 19:13:00.175  INFO 5440 --- [RMI TCP Connection(14)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-05-02 19:13:00.223  INFO 5440 --- [RMI TCP Connection(14)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-02 19:13:00.226  INFO 5440 --- [RMI TCP Connection(14)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-05-02 19:13:00.233  INFO 5440 --- [RMI TCP Connection(14)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-05-02 19:13:00.233 DEBUG 5440 --- [RMI TCP Connection(14)-127.0.0.1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Before shutdown stats (total=5, active=0, idle=5, waiting=0)
+2021-05-02 19:13:00.236 DEBUG 5440 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@4575d181: (connection evicted)
+2021-05-02 19:13:00.240 DEBUG 5440 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@3506f820: (connection evicted)
+2021-05-02 19:13:00.241 DEBUG 5440 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@4b25e2a0: (connection evicted)
+2021-05-02 19:13:00.242 DEBUG 5440 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@7855011e: (connection evicted)
+2021-05-02 19:13:00.243 DEBUG 5440 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@515e7a01: (connection evicted)
+2021-05-02 19:13:00.243 DEBUG 5440 --- [RMI TCP Connection(14)-127.0.0.1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+2021-05-02 19:13:00.244  INFO 5440 --- [RMI TCP Connection(14)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-05-02 19:45:41.306  INFO 7564 --- [restartedMain] c.CustomerRegistrationServiceApplication : Starting CustomerRegistrationServiceApplication on DESKTOP-EV165GM with PID 7564 (E:\MetLife\InsuranceCompany\CustomerRegistrationService\target\classes started by satya in E:\MetLife\InsuranceCompany\CustomerRegistrationService)
+2021-05-02 19:45:41.310 DEBUG 7564 --- [restartedMain] c.CustomerRegistrationServiceApplication : Running with Spring Boot v2.3.9.RELEASE, Spring v5.2.13.RELEASE
+2021-05-02 19:45:41.310  INFO 7564 --- [restartedMain] c.CustomerRegistrationServiceApplication : No active profile set, falling back to default profiles: default
+2021-05-02 19:45:41.379  INFO 7564 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-02 19:45:41.380  INFO 7564 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-02 19:45:42.835  INFO 7564 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-02 19:45:42.837  INFO 7564 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-02 19:45:43.090  INFO 7564 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 242ms. Found 1 JPA repository interfaces.
+2021-05-02 19:45:43.110  INFO 7564 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-02 19:45:43.112  INFO 7564 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-02 19:45:43.146  INFO 7564 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.cts.customerregistration.dao.CustomerDao. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-05-02 19:45:43.146  INFO 7564 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9ms. Found 0 Redis repository interfaces.
+2021-05-02 19:45:44.036  INFO 7564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7000 (http)
+2021-05-02 19:45:44.047  INFO 7564 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-02 19:45:44.047  INFO 7564 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-05-02 19:45:44.194  INFO 7564 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-05-02 19:45:44.196  INFO 7564 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2816 ms
+2021-05-02 19:45:44.583 DEBUG 7564 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : Driver class com.mysql.cj.jdbc.Driver not found in Thread context class loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@1f5425e4, trying classloader jdk.internal.loader.ClassLoaders$AppClassLoader@11028347
+2021-05-02 19:45:44.586 ERROR 7564 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : Failed to load driver class com.mysql.cj.jdbc.Driver from HikariConfig class classloader jdk.internal.loader.ClassLoaders$AppClassLoader@11028347
+2021-05-02 19:45:44.589  WARN 7564 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'inMemoryDatabaseShutdownExecutor' defined in class path resource [org/springframework/boot/devtools/autoconfigure/DevToolsDataSourceAutoConfiguration.class]: Unsatisfied dependency expressed through method 'inMemoryDatabaseShutdownExecutor' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under '' to com.zaxxer.hikari.HikariDataSource
+2021-05-02 19:45:44.608  INFO 7564 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-05-02 19:45:44.626  INFO 7564 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-05-02 19:45:44.630 ERROR 7564 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under '' to com.zaxxer.hikari.HikariDataSource:
+
+    Property: driver-class-name
+    Value: com.mysql.cj.jdbc.Driver
+    Origin: "driverClassName" from property source "source"
+    Reason: Failed to load driver class com.mysql.cj.jdbc.Driver in either of HikariConfig class loader or Thread context classloader
+
+Action:
+
+Update your application's configuration
+

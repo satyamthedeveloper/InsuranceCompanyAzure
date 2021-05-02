@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.cts.salesprocessing.model.Customer;
 
 
-@FeignClient(value="CustomerReg",url="localhost:7000/")
+@FeignClient(value="CustomerReg",url="${customer.registration.service}")
 public interface CustomerProxy {
 	
 	@GetMapping("/customer/{pan}")
